@@ -9,12 +9,6 @@ export default function DeleteModal(props) {
     <div
       onClick={props.onClose}
       className="bg-[rgba(0,0,0,0.5)] fixed right-0 bottom-0 left-0 top-0 flex justify-center items-center">
-
-
-
-
-      
-
   <div 
     onClick={e => e.stopPropagation()}
     className="relative px-4  md:flex md:items-center md:justify-center">
