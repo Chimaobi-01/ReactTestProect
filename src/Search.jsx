@@ -16,7 +16,7 @@ export default function Search({users, setUser}) {
   
   function handleChange(value) {
     setInput(value)
-    fetchData(value)
+    fetchData(value.toLowerCase())
   }
   
   return (

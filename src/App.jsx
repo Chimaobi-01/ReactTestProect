@@ -239,12 +239,40 @@ export default function App() {
     }
   ])
 
+  const [currentPage, setCurrentPage] = useState(1)
+  const recordsPerPage = 5
+  const lastIndex = currentPage * recordsPerPage
+    const firstIndex = lastIndex - recordsPerPage
+const records = users.slice(firstIndex, lastIndex) 
+  const nPage = Math.ceil(users.length / recordsPerPage)
+const totalUsers = users.length
+
+
+
+
+function prevPage() {
+  if(currentPage !== 1){
+    setCurrentPage(currentPage - 1)
+  }
+}
+function nextPage() {
+  if(currentPage !== nPage){
+    setCurrentPage(currentPage + 1)
+  }
+}
+
+
+
   return (
     <div className="container mx-auto p-8">
       <div className="bg-white rounded-lg shadow">
-      <Header users={users} setUser={setUser} />
-      <Table users={users} setUser={setUser} />
-      <Footer />
+      <Header 
+        users={users}
+        setUser={setUser} 
+        />
+      <Table 
+        users={users} setUser={setUser} records={records} />
+      <Footer nextPage={nextPage} prevPage={prevPage} totalUsers={totalUsers} firstIndex={firstIndex} lastIndex={lastIndex} />
        
       </div>
     </div>

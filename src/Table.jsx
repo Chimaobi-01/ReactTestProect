@@ -34,9 +34,9 @@ function Thead() {
   )
 }
 
-function Tbody({users, setUser}) {
+function Tbody( {users, setUser, records} ) {
   return (
-    <Tdata users={users} setUser={setUser} />
+    <Tdata users={users} setUser={setUser} records={records} />
   )
 }
 
@@ -46,12 +46,12 @@ function Tbody({users, setUser}) {
 
 
 
-export default function Table({users, setUser}) {
+export default function Table({users, setUser, records}) {
   return (
     <div className="overflow-x-auto ">
       <table className="mt-5 w-full border-collapse bg-white whitespace-nowrap ">
     <Thead />
-     <Tbody users={users} setUser={setUser} />
+     <Tbody users={users} setUser={setUser} records={records}  />
    </table>
     </div>
    

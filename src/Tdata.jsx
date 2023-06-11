@@ -3,13 +3,14 @@ import EditButton from './EditButton'
 import DelButton from './DelButton'
 
 
-export default function Tdata({users, setUser}) {
+export default function Tdata( {users, records} ) {  
+
 
   return (
-    <tbody className="w-full ">
-
+    <tbody className="w-full " >
+    
       {
-        users.map((user, id) => (
+        records.map((user, id) => (
           <tr key={id} >
             <td className="py-4 px-6 border-t text-start text-sm flex ">
           <label>
@@ -52,7 +53,7 @@ export default function Tdata({users, setUser}) {
           </tr>
         ))
       }
-
-    </tbody>
+  
+       </tbody>
   )
 }
