@@ -12,7 +12,7 @@ export default function EditButton(props) {
       className="px-3 text-sm h-10 font-semibold rounded-lg hover:bg-gray-100">
        <i className="text-xl fa-solid fa-pen"></i>
      </button>
-     <Modal show={show} onClose={() => setShow(false)} />
+     <Modal show={show} onClose={() => setShow(false)} user={props.user} />
     </>
   )
 }

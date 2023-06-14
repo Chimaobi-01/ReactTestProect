@@ -1,9 +1,10 @@
 import React from 'react'
 import EditButton from './EditButton'
 import DelButton from './DelButton'
+import photo from '/public/images/photo.jpeg'
 
 
-export default function Tdata( {users, records} ) {  
+export default function Tdata( { records, toggleCheckbox } ) {  
 
 
   return (
@@ -11,13 +12,18 @@ export default function Tdata( {users, records} ) {
     
       {
         records.map((user, id) => (
-          <tr key={id} >
+          <tr key={user.id} >
             <td className="py-4 px-6 border-t text-start text-sm flex ">
-          <label>
-            <input type="checkbox" />
+          <label className=" inline-flex items-center mr-3">
+            <input className="cursor-pointer w-3 h-3 text-blue-600 bg-gray-200 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              type="checkbox" id={user.id}
+              checked={user.checked}
+              onChange={() => toggleCheckbox(user.id)}
+            />
           </label>
-          <span className="ms-3 ">
-            <img src="" className="" />
+          <span
+            className=" inline-flex justify-center items-center rounded-full text-center uppercase relative  w-10 h-10 ">
+            <img src={photo} className=" w-full h-full rounded-full object-cover border-none z-0" />
           </span>
           <div className="ms-3 ">
             <p className="font-medium ">{user.name}</p>
@@ -46,8 +52,8 @@ export default function Tdata( {users, records} ) {
         </td>
              <td className="py-4 px-6 border-t text-start text-sm ">
           <div className="flex items-center gap-x-0.5 ">
-            <DelButton />
-            <EditButton />
+            <DelButton user={user} />
+            <EditButton user={user} />
           </div>
         </td>
           </tr>

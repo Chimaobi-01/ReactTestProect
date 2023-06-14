@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import SearchResultList from './SearchResultList.jsx'
+import {MockData} from "./MockData.jsx"
 
-
-export default function Search({users, setUser}) {
+export default function Search() {
   const [input, setInput] = useState('')
   const [ results, setResults ] = useState([])
 
   function fetchData(value) {
     
-    const results = users.filter((d) => {
+    const results = MockData.filter((d) => {
       return value && d && d.name && d.name.toLowerCase().includes(value)
     })
     setResults(results)

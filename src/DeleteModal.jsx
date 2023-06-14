@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function DeleteModal(props) {
   if(!props.show) {
     return null
@@ -8,7 +9,7 @@ export default function DeleteModal(props) {
   return (
     <div
       onClick={props.onClose}
-      className="bg-[rgba(0,0,0,0.5)] fixed right-0 bottom-0 left-0 top-0 flex justify-center items-center">
+      className="bg-[rgba(0,0,0,0.5)] fixed right-0 bottom-0 left-0 top-0 flex justify-center items-center z-10">
   <div 
     onClick={e => e.stopPropagation()}
     className="relative px-4  md:flex md:items-center md:justify-center">
@@ -19,8 +20,9 @@ export default function DeleteModal(props) {
         </div>
         <div className=" text-[2.5vw] md:text-base mt-4  text-center">
           <p className="font-bold">Delete your account</p>
-          <p className=" text-gray-700 mt-1 break-words">Are you sure you want to delete? This cannot be undone.
-          </p>
+          <span className=" text-gray-700 mt-1">Are you sure you want to delete <span className="font-semibold">{props.user.name}</span>?</span>
+          <p className="text-gray-700 mt-1 md:mt-0">This cannot be undone.</p> 
+        
         </div>
       </div>
       <div className="text-center md:text-right mt-4 flex-col md:flex-row flex md:justify-end">
